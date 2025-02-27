@@ -1,0 +1,71 @@
+.ays_field_section .color,
+.ays_field_section .ays_field,
+.ays_field_section label,
+.ays_field_section select {
+    width: 100%;
+    margin-top: 3px;
+}
+
+.color-alpha {
+    height: 28px !important;
+}
+
+label {
+    display: inline !important;
+}
+
+.wp-color-picker {
+    width: 124px !important;
+    height: 40px !important;
+    font-size: 16px !important;
+}
+
+.wp-picker-container {
+    margin-top: 5px !important;
+}
+
+.only_pro {
+    position: relative;
+}
+
+.pro_features {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+
+.pro_features.centered {
+    align-items: center;
+    justify-content: center;
+}
+
+.pro_features p {
+    color: ghostwhite;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 5px;
+    background: rgba(0, 0, 0, .2);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+a.only_pro_lik,
+.pro_features p a {
+    color: #f50057 !important;
+    font-weight: 700;
+    transition: all .3s ease-in;
+}
+
+a.only_pro_lik:hover,
+.pro_features p a:hover {
+    color: #C51162 !important;
+    transition: all .3s ease-in;
+}
