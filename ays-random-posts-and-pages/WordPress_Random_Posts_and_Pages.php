@@ -4,7 +4,7 @@ ob_start();
 Plugin Name:    Random Posts and Pages
 Plugin URI:     https://ays-pro.com/
 Description:    The main advantage of this widget is random movement of random links and every time they are changing.
-Version:        2.5.9
+Version:        2.6.0
 Author:         Random posts Team
 Author          URI: https://ays-pro.com/
 License:        GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -557,7 +557,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         $ays_animation_type = ( isset( $instance[ 'ays_animation_type' ] ) ) ? $instance[ 'ays_animation_type' ] :  __( 'move', 'ays-random-posts-and-pages' );
         $ays_select_post_type = ( !isset($instance[ 'select_post_type' ]) || $instance[ 'select_post_type' ] === false ) ?   __( 'post', 'ays-random-posts-and-pages' ) : explode('***', $instance[ 'select_post_type' ]);
             // Levons add start
-        $ays_select_post_category = ( !isset($instance[ 'select_post_category' ]) || $instance[ 'select_post_category' ] === false ) ?   __( '', 'ays-random-posts-and-pages' ) : explode('***', $instance[ 'select_post_category' ]);
+        $ays_select_post_category = ( !isset($instance[ 'select_post_category' ]) || $instance[ 'select_post_category' ] === false ) ? '' : explode('***', $instance[ 'select_post_category' ]);
             // Levons add end
             
         $ays_width = ( isset( $instance[ 'ays_width' ] ) ) ? $instance[ 'ays_width' ] :  __( '270px', 'ays-random-posts-and-pages' );
@@ -576,19 +576,18 @@ class Random_Posts_and_Pages extends WP_Widget {
         $ays_background_image = ( isset( $instance[ 'ays_background_image' ] ) ) ? $instance[ 'ays_background_image' ] :  "";
         $ays_link_color = ( isset( $instance[ 'ays_link_color' ] ) ) ? $instance[ 'ays_link_color' ] :  __( 'FFFFFF', 'ays-random-posts-and-pages' );
         $ays_link_padding = ( isset( $instance[ 'ays_link_padding' ] ) ) ? $instance[ 'ays_link_padding' ] :  __( '4px', 'ays-random-posts-and-pages' );
-        $ays_link_border_radius = ( isset( $instance[ 'ays_link_border_radius' ] ) ) ? $instance[ 'ays_link_border_radius' ] :  __( '', 'ays-random-posts-and-pages' );
+        $ays_link_border_radius = ( isset( $instance[ 'ays_link_border_radius' ] ) ) ? $instance[ 'ays_link_border_radius' ] :  '';
         $ays_link_font = ( isset( $instance[ 'ays_link_font' ] ) ) ? $instance[ 'ays_link_font' ] :  __( 'arial', 'ays-random-posts-and-pages' );
         $ays_animate_speed = ( isset( $instance[ 'ays_animate_speed' ] ) ) ? $instance[ 'ays_animate_speed' ] :  __( '1400', 'ays-random-posts-and-pages' );
         $ays_link_hover_img_display = ( isset( $instance[ 'ays_link_hover_img_display' ] ) ) ? $instance[ 'ays_link_hover_img_display' ] :  __( 'yes', 'ays-random-posts-and-pages' );
         $ays_link_hover_img_height = ( isset( $instance[ 'ays_link_hover_img_height' ] ) ) ? $instance[ 'ays_link_hover_img_height' ] :  __( '100', 'ays-random-posts-and-pages' );
         $ays_link_hover_img_size = ( isset( $instance[ 'ays_link_hover_img_size' ] ) ) ? $instance[ 'ays_link_hover_img_size' ] :  __( 'contain', 'ays-random-posts-and-pages' );
         $ays_link_hover_bg = ( isset( $instance[ 'ays_link_hover_bg' ] ) ) ? $instance[ 'ays_link_hover_bg' ] :  __( 'FFFFFF', 'ays-random-posts-and-pages' );
-        $ays_link_hover_bg_trans = ( isset( $instance[ 'ays_link_hover_bg_trans' ] ) ) ? $instance[ 'ays_link_hover_bg_trans' ] :  __( '', 'ays-random-posts-and-pages' );
+        $ays_link_hover_bg_trans = ( isset( $instance[ 'ays_link_hover_bg_trans' ] ) ) ? $instance[ 'ays_link_hover_bg_trans' ] :  '';
         $ays_link_hover_color = ( isset( $instance[ 'ays_link_hover_color' ] ) ) ? $instance[ 'ays_link_hover_color' ] :  __( '808080', 'ays-random-posts-and-pages' );
         $ays_link_hover_border = ( isset( $instance[ 'ays_link_hover_border' ] ) ) ? $instance[ 'ays_link_hover_border' ] :  __( '004466', 'ays-random-posts-and-pages' );
         $ays_rp_same_type = ( isset( $instance[ 'ays_rp_same_type' ] )  && $instance[ 'ays_rp_same_type' ] == "on" ) ? "checked" : "";
         $ays_hide_for_mobile_device = ( isset( $instance[ 'ays_hide_for_mobile_device' ] )  && $instance[ 'ays_hide_for_mobile_device' ] == "on" ) ? "checked" : "";
-
 
         $color_prefix="#";
         if(strpos($ays_box_border_color, $color_prefix) === false && strpos($ays_box_border_color, 'rgba') === false ){
@@ -623,9 +622,6 @@ class Random_Posts_and_Pages extends WP_Widget {
         wp_enqueue_script( 'wp-color-picker-alpha', plugins_url( 'jscolor/wp-color-picker-alpha.min.js', __FILE__ ), array( 'wp-color-picker' ), false, true ); 
 
         wp_enqueue_script( 'ays-random-posts-and-pages-admin', plugins_url( 'js/ays-random-posts-and-pages-admin.js', __FILE__ ), array( 'jquery' ), false, true ); 
-
-
-
         
         ////////////////////////////////////////////////////////////////////////////////////////
         // Widget admin form
@@ -638,18 +634,13 @@ class Random_Posts_and_Pages extends WP_Widget {
         $post_types_array = array_unique($post_types_array);
         $post_types_array = array_values($post_types_array);
 
-
         ?>
-
-        <script>
-            // jscolor.bind();
-
-        </script>
+        
         <input type='hidden' name="<?php echo $this->get_field_name( 'unique_id' ); ?>" value="<?php echo esc_attr( $unique_id ); ?>">
         <p class="ays_field_section">
             <!-- box title -->
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-            <input class="ays_field" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" placeholder="AYS random internal links" value="<?php echo esc_attr( $title ); ?>" />
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php echo __( 'Title:','ays-random-posts-and-pages' ); ?></label> 
+            <input class="ays_field" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" placeholder="<?php echo __( 'AYS random internal links','ays-random-posts-and-pages' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
         </p>
 
         <p class="ays_field_section ">
@@ -663,7 +654,7 @@ class Random_Posts_and_Pages extends WP_Widget {
                 </p>
             </div>
         </div>
-        <label for=""><?php _e( 'Themes:' ); ?></label> 
+        <label for=""><?php echo __( 'Themes:', 'ays-random-posts-and-pages' ); ?></label> 
         <select class="ays_field"  id="">
             <option value="default">Default</option>
             <option value="light">Light</option>
@@ -674,7 +665,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         <!-- /////////////////////////////////////// -->
         <p class="ays_field_section">
             <!-- links animation speed -->
-            <label for="<?php echo $this->get_field_id( 'ays_animation_type' ); ?>"><?php _e( 'Animation type:' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_animation_type' ); ?>"><?php echo __( 'Animation type:', 'ays-random-posts-and-pages' ); ?></label> 
             <select class="ays_field" name="<?php echo $this->get_field_name( 'ays_animation_type' ); ?>" id="<?php echo $this->get_field_id( 'ays_animation_type' ); ?>">
                 <option <?php if($ays_animation_type=="move") echo "selected"; ?>  value="move">Move</option>
                 <option <?php if($ays_animation_type=="fade") echo "selected"; ?>  value="fade">Fade</option>
@@ -698,7 +689,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         <hr>
         </div>
         <p class="ays_field_section">
-            <label for="<?php echo $this->get_field_id( 'select_post_type' ); ?>"><?php _e( 'Post type:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'select_post_type' ); ?>"><?php echo __( 'Post type:', 'ays-random-posts-and-pages' ); ?></label>
             <select multiple id="<?php echo $this->get_field_id( 'select_post_type' ); ?>" name="<?php echo $this->get_field_name('select_post_type') ?>[]">
                 <?php
                     foreach($post_types_array as $types) {
@@ -718,11 +709,11 @@ class Random_Posts_and_Pages extends WP_Widget {
                     }
                 ?>
             </select>
-            <span style="font-size: 13px; padding-left: 3px;">Hold the CTRL/CMD key and select the post types of your choice.</span>
+            <span style="font-size: 13px; padding-left: 3px;"><?php echo __( 'Hold the CTRL/CMD key and select the post types of your choice.','ays-random-posts-and-pages' ); ?></span>
         </p>
          <!-- Xcho start same post type -->
         <p class="ays_field_section" style="display: flex;align-items: center;">
-            <label for="<?php echo $this->get_field_name( 'ays_rp_same_type' ); ?>" style="width: 235px;margin-top: 0;"><?php echo __( 'Show posts with the same post type:' ); ?></label>
+            <label for="<?php echo $this->get_field_name( 'ays_rp_same_type' ); ?>" style="width: 235px;margin-top: 0;"><?php echo __( 'Show posts with the same post type:','ays-random-posts-and-pages' ); ?></label>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'ays_rp_same_type' ); ?>" id="<?php echo $this->get_field_name( 'ays_rp_same_type' ); ?>" value="on" <?php echo $ays_rp_same_type;?>>
         </p>
         <!-- Xcho start same post type end -->
@@ -745,7 +736,7 @@ class Random_Posts_and_Pages extends WP_Widget {
             // Levons add start
         -->
         <p class="ays_field_section">
-            <label for="<?php echo $this->get_field_id( 'select_post_category' ); ?>"><?php _e( 'Post category:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'select_post_category' ); ?>"><?php echo __( 'Post category:', 'ays-random-posts-and-pages' ); ?></label>
             <select multiple id="<?php echo $this->get_field_id( 'select_post_category' ); ?>" name="<?php echo $this->get_field_name('select_post_category') ?>[]">
                 <?php
                     $categories = get_categories( array(
@@ -769,7 +760,7 @@ class Random_Posts_and_Pages extends WP_Widget {
                     }
                 ?>
             </select>
-            <span style="font-size: 13px; padding-left: 3px;">Hold the CTRL/CMD key and select the post category of your choice.</span>
+            <span style="font-size: 13px; padding-left: 3px;"><?php echo __( 'Hold the CTRL/CMD key and select the post category of your choice.', 'ays-random-posts-and-pages' ); ?></span>
         </p>
        
         <!--
@@ -777,21 +768,21 @@ class Random_Posts_and_Pages extends WP_Widget {
         -->
         <p class="ays_field_section">
             <!-- box width -->
-            <label for="<?php echo $this->get_field_id( 'ays_width' ); ?>"><?php _e( 'Box Width (300px)(for the 100% save empty blank):' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_width' ); ?>"><?php echo __( 'Box Width (300px)(for the 100% save empty blank):', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_width' ); ?>" name="<?php echo $this->get_field_name( 'ays_width' ); ?>" type="text" placeholder="300px" value="<?php echo esc_attr( $ays_width ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- box height -->
-            <label for="<?php echo $this->get_field_id( 'ays_height' ); ?>"><?php _e( 'Box Height (300px):' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_height' ); ?>"><?php echo __( 'Box Height (300px):', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_height' ); ?>" name="<?php echo $this->get_field_name( 'ays_height' ); ?>" type="text" placeholder="300px" value="<?php echo esc_attr( $ays_height ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- box background color -->
-            <label for="<?php echo $this->get_field_id( 'ays_box_background' ); ?>"><?php _e( 'Box background color:' ); ?><br></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_box_background' ); ?>"><?php echo __( 'Box background color:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input data-alpha="true" autocomplete="off" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_box_background' ); ?>" name="<?php echo $this->get_field_name( 'ays_box_background' ); ?>" placeholder="CEDFE0" data-default-color="#CEDFE0" type="text" value="<?php echo esc_attr( $ays_box_background ); ?>" />
         </p>
         <div class="ays_field_section">
-            <label for="<?= $this->get_field_id( 'ays_background_image' ); ?>">Background Image:</label>
+            <label for="<?= $this->get_field_id( 'ays_background_image' ); ?>"><?php echo __( 'Background Image:', 'ays-random-posts-and-pages' ); ?></label>
             <div id="<?= $this->get_field_id( 'ays_background_image' ); ?>" style="position: relative;overflow: hidden;">
                 <img id="ays_button" class="<?= $this->id ?>_img" src="<?= (isset($ays_background_image) && $ays_background_image != '') ? $ays_background_image : ''; ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
                 <img src="<?php echo AYS_RANDOM_ADMIN_URL."/images/wrong.png"; ?>" class="ays_button_closer" style="position: absolute; top:0; right: 0;cursor: pointer;">
@@ -801,7 +792,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         </div>
         <p class="ays_field_section">
             <!-- box border color -->
-            <label for="<?php echo $this->get_field_id( 'ays_box_border_color' ); ?>"><?php _e( 'Box border color:' ); ?><br></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_box_border_color' ); ?>"><?php echo __( 'Box border color:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_box_border_color' ); ?>" name="<?php echo $this->get_field_name( 'ays_box_border_color' ); ?>" type="text" data-default-color="#004466" placeholder="004466" value="<?php echo esc_attr( $ays_box_border_color ); ?>" />
         </p>
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -809,17 +800,17 @@ class Random_Posts_and_Pages extends WP_Widget {
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <p class="ays_field_section">
             <!-- box border thickness -->
-            <label for="<?php echo $this->get_field_id( 'ays_box_border_thickness' ); ?>"><?php _e( 'Box border thickness (3px):' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_box_border_thickness' ); ?>"><?php echo __( 'Box border thickness (3px):', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_box_border_thickness' ); ?>" name="<?php echo $this->get_field_name( 'ays_box_border_thickness' ); ?>" type="text" placeholder="3px" value="<?php echo esc_attr( $ays_box_border_thickness ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- box border radius -->
-            <label for="<?php echo $this->get_field_id( 'ays_box_border_radius' ); ?>"><?php _e( 'Box border radius (10px):' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_box_border_radius' ); ?>"><?php echo __( 'Box border radius (10px):', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_box_border_radius' ); ?>" name="<?php echo $this->get_field_name( 'ays_box_border_radius' ); ?>" placeholder="10px" type="text" value="<?php echo esc_attr( $ays_box_border_radius ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- box shadow -->
-            <label for="<?php echo $this->get_field_id('ays_box_shadow'); ?>"><?php _e('Box shadow (0px 0px 6px 8px #BCE7E9):'); ?></label>
+            <label for="<?php echo $this->get_field_id('ays_box_shadow'); ?>"><?php echo __('Box shadow (0px 0px 6px 8px #BCE7E9):', 'ays-random-posts-and-pages'); ?></label>
             <input class="ays_field" id="<?php echo $this->get_field_id('ays_box_shadow'); ?>" name="<?php echo $this->get_field_name('ays_box_shadow'); ?>" type="text" placeholder="0px 0px 6px 8px #BCE7E9" value="<?php echo esc_attr($ays_box_shadow); ?>" />
         </p>
 
@@ -828,38 +819,38 @@ class Random_Posts_and_Pages extends WP_Widget {
         <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <p class="ays_field_section">
             <!-- box links count -->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_count_links' ); ?>"><?php _e( 'Links count:' ); ?></label> 
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_count_links' ); ?>"><?php echo __( 'Links count:', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_count_links' ); ?>" name="<?php echo $this->get_field_name( 'ays_count_links' ); ?>" type="number" placeholder="10" value="<?php echo esc_attr( $ays_count_links ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links count letters-->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_count_letters' ); ?>"><?php _e( 'Quantity letters:' ); ?></label> 
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_count_letters' ); ?>"><?php echo __( 'Quantity letters:', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_count_letters' ); ?>" name="<?php echo $this->get_field_name( 'ays_count_letters' ); ?>" type="number" placeholder="15" value="<?php echo esc_attr( $ays_count_letters ); ?>" />
         </p>
 
         <p class="ays_field_section">
             <!-- links background color -->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_background' ); ?>"><?php _e( 'Links Background color:' ); ?><br></label>
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_background' ); ?>"><?php echo __( 'Links Background color:', 'ays-random-posts-and-pages' ); ?><br></label>
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_link_background' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_background' ); ?>" type="text" data-default-color="#808080" placeholder="808080" value="<?php echo esc_attr( $ays_link_background ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links color -->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_color' ); ?>"><?php _e( 'Links color:' ); ?><br></label> 
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_color' ); ?>"><?php echo __( 'Links color:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_link_color' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_color' ); ?>" type="text" data-default-color="#FFFFFF" placeholder="FFFFFF" value="<?php echo esc_attr( $ays_link_color ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links padding -->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_padding' ); ?>"><?php _e( 'Link padding (4px):' ); ?></label> 
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_padding' ); ?>"><?php echo __( 'Link padding (4px):', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_link_padding' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_padding' ); ?>" type="text" placeholder="4px" value="<?php echo esc_attr( $ays_link_padding ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links border radius -->
-            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_border_radius' ); ?>"><?php _e( 'Links border radius:' ); ?></label> 
+            <label class='label_marg' for="<?php echo $this->get_field_id( 'ays_link_border_radius' ); ?>"><?php echo __( 'Links border radius:', 'ays-random-posts-and-pages' ); ?></label> 
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_link_border_radius' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_border_radius' ); ?>" placeholder="0px 0px 5px 5px " type="text" value="<?php echo esc_attr( $ays_link_border_radius ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links text font -->
-            <label for="<?php echo $this->get_field_id( 'ays_link_font' ); ?>"><?php _e( 'Font:' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_link_font' ); ?>"><?php echo __( 'Font:', 'ays-random-posts-and-pages' ); ?></label> 
             <select class="ays_field" name="<?php echo $this->get_field_name( 'ays_link_font' ); ?>" id="<?php echo $this->get_field_id( 'ays_link_font' ); ?>">
                 <option <?php if($ays_link_font=="arial") echo "selected"; ?> value="arial">Arial</option>
                 <option <?php if($ays_link_font=="lucida grande") echo "selected"; ?> value="lucida grande">Lucida grande</option>
@@ -871,7 +862,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         </p>
         <p class="ays_field_section">
             <!-- links animation speed -->
-            <label for="<?php echo $this->get_field_id( 'ays_animate_speed' ); ?>"><?php _e( 'Animation speed:' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_animate_speed' ); ?>"><?php echo __( 'Animation speed:', 'ays-random-posts-and-pages' ); ?></label> 
             <select class="ays_field" name="<?php echo $this->get_field_name( 'ays_animate_speed' ); ?>" id="<?php echo $this->get_field_id( 'ays_animate_speed' ); ?>">
                 <option <?php if($ays_animate_speed=="700") echo "selected"; ?>  value="700">Fast</option>
                 <option <?php if($ays_animate_speed=="1400") echo "selected"; ?>  value="1400">Normal</option>
@@ -880,7 +871,7 @@ class Random_Posts_and_Pages extends WP_Widget {
         </p>
         <p class="ays_field_section">
             <!-- links hover featured image display -->
-            <label class="ays_field" for="<?php echo $this->get_field_id( 'ays_link_hover_img_display' ); ?>"><?php _e( 'Links hover image display:' ); ?></label>
+            <label class="ays_field" for="<?php echo $this->get_field_id( 'ays_link_hover_img_display' ); ?>"><?php echo __( 'Links hover image display:', 'ays-random-posts-and-pages' ); ?></label>
             <select class="ays_field" name="<?php echo $this->get_field_name( 'ays_link_hover_img_display' ); ?>" id="<?php echo $this->get_field_id( 'ays_link_hover_img_display' ); ?>">
                 <option <?php if($ays_link_hover_img_display=="no_image") echo "selected"; ?>  value="no_image">No Image</option>
                 <option <?php if($ays_link_hover_img_display=="hover_image") echo "selected"; ?>  value="hover_image">Hovered Image</option>
@@ -889,12 +880,12 @@ class Random_Posts_and_Pages extends WP_Widget {
         </p>
         <p class="ays_field_section">
             <!-- links hover featured image height -->
-            <label class="ays_field" for="<?php echo $this->get_field_id( 'ays_link_hover_img_height' ); ?>"><?php _e( 'Links hover image height (px):' ); ?></label>
+            <label class="ays_field" for="<?php echo $this->get_field_id( 'ays_link_hover_img_height' ); ?>"><?php echo __( 'Links hover image height (px):', 'ays-random-posts-and-pages' ); ?></label>
             <input class="ays_field" id="<?php echo $this->get_field_id( 'ays_link_hover_img_height' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_hover_img_height' ); ?>" type="number" placeholder="100" value="<?php echo esc_attr( $ays_link_hover_img_height );  ?>"  />
         </p>
         <p class="ays_field_section">
             <!-- links hover featured image size -->
-            <label for="<?php echo $this->get_field_id( 'ays_link_hover_img_size' ); ?>"><?php _e( 'Links hover image size:' ); ?></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_link_hover_img_size' ); ?>"><?php echo __( 'Links hover image size:', 'ays-random-posts-and-pages'); ?></label> 
             <select class="ays_field" name="<?php echo $this->get_field_name( 'ays_link_hover_img_size' ); ?>" id="<?php echo $this->get_field_id( 'ays_link_hover_img_size' ); ?>">
                 <option <?php if($ays_link_hover_img_size=="contain") echo "selected"; ?>  value="contain">Contain</option>
                 <option <?php if($ays_link_hover_img_size=="cover") echo "selected";  ?>  value="cover">Cover</option>
@@ -902,23 +893,23 @@ class Random_Posts_and_Pages extends WP_Widget {
         </p>
         <p class="ays_field_section">
             <!-- links hover background color -->
-            <label for="<?php echo $this->get_field_id( 'ays_link_hover_bg' ); ?>"><?php _e( 'Links hover background color:' ); ?><br></label>
+            <label for="<?php echo $this->get_field_id( 'ays_link_hover_bg' ); ?>"><?php echo __( 'Links hover background color:', 'ays-random-posts-and-pages' ); ?><br></label>
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_link_hover_bg' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_hover_bg' ); ?>" type="text" data-default-color="#FFFFFF" placeholder="FFFFFF" value="<?php if($ays_link_hover_bg_trans){echo 'FFFFFF';}else{ echo esc_attr( $ays_link_hover_bg );} ?>" />
             
         </p>
         <p class="ays_field_section">
             <!-- links hover color -->
-            <label for="<?php echo $this->get_field_id( 'ays_link_hover_color' ); ?>"><?php _e( 'Links hover color:' ); ?><br></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_link_hover_color' ); ?>"><?php echo __( 'Links hover color:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_link_hover_color' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_hover_color' ); ?>" data-default-color="#808080" type="text" placeholder="808080" value="<?php echo esc_attr( $ays_link_hover_color ); ?>" />
         </p>
         <p class="ays_field_section">
             <!-- links hover border color -->
-            <label for="<?php echo $this->get_field_id( 'ays_link_hover_border' ); ?>"><?php _e( 'Links hover border color:' ); ?><br></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_link_hover_border' ); ?>"><?php echo __( 'Links hover border color:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input data-alpha="true" class="ays_color_picker" id="<?php echo $this->get_field_id( 'ays_link_hover_border' ); ?>" name="<?php echo $this->get_field_name( 'ays_link_hover_border' ); ?>" type="text" placeholder="#004466" data-default-color="#004466" value="<?php echo esc_attr( $ays_link_hover_border ); ?>" />
         </p>
         <p class="ays_field_section" style="display: flex;align-items:center">
             <!-- Hide for mobile -->
-            <label for="<?php echo $this->get_field_id( 'ays_hide_for_mobile_device' ); ?>" style="width: 40%;"><?php _e( 'Hide on mobile devices:' ); ?><br></label> 
+            <label for="<?php echo $this->get_field_id( 'ays_hide_for_mobile_device' ); ?>" style="width: 40%;"><?php echo __( 'Hide on mobile devices:', 'ays-random-posts-and-pages' ); ?><br></label> 
             <input type="checkbox" id="<?php echo $this->get_field_id( 'ays_hide_for_mobile_device' ); ?>" name="<?php echo $this->get_field_name( 'ays_hide_for_mobile_device' ); ?>" value="on" <?php echo $ays_hide_for_mobile_device; ?>/>
         </p>
 
@@ -931,13 +922,13 @@ class Random_Posts_and_Pages extends WP_Widget {
                     <h2><?php echo __('Upgrade to Premium','ays-random-posts-and-pages') ; ?></h2>
                 </div>
                 <div>
-                    <a href="https://ays-pro.com/wordpress/random-posts-and-pages" class="button button-primary ays-button" id="ays-button-top" target="_blank" style="display: inline-block; height: 20px; align-items: center; font-weight: 500; ">Get Now!</a>
+                    <a href="https://ays-pro.com/wordpress/random-posts-and-pages" class="button button-primary ays-button" id="ays-button-top" target="_blank" style="display: inline-block; height: 20px; align-items: center; font-weight: 500; "><?php echo __('Get Now!','ays-random-posts-and-pages') ; ?></a>
                 </div>
             </div>
         </div>
         <p class="ays_field_section">
                 <!-- links hover border color -->
-            <input type="button" class="button ays_reset<?php echo esc_attr( $unique_id ); ?>" name="ays_reset<?php echo esc_attr( $unique_id ); ?>" value="Reset" />
+            <input type="button" class="button ays_reset<?php echo esc_attr( $unique_id ); ?>" name="ays_reset<?php echo esc_attr( $unique_id ); ?>" value="<?php echo __('Reset','ays-random-posts-and-pages') ; ?>" />
         </p>
 
             <script>
