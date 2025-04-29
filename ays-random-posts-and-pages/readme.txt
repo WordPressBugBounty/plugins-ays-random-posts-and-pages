@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/random-posts-and-pages
 Tags: random posts, random post, random pages, related posts, popular posts
 Requires at least: 4.0
-Tested up to: 6.7
-Stable tag: 2.6.0
+Tested up to: 6.8
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,10 @@ Don't forget, in case of any problems or upcoming questions feel free to contact
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 2.6.1 =
+* Updated: POT and PO files
+* Tested: Compatible up to 6.8
 
 = 2.6.0 =
 * Added: Russian language support

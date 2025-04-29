@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Random Posts and Pages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 22:23+0300\n"
-"PO-Revision-Date: 2025-03-20 22:23+0300\n"
+"POT-Creation-Date: 2025-04-28 09:59+0400\n"
+"PO-Revision-Date: 2025-04-28 09:59+0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n_noop:1,2;_x\n"
 "X-Poedit-Basepath: .\n"
@@ -31,7 +31,7 @@ msgstr ""
 "every time they are changing."
 
 #: ../WordPress_Random_Posts_and_Pages.php:556
-#: ../WordPress_Random_Posts_and_Pages.php:652
+#: ../WordPress_Random_Posts_and_Pages.php:643
 msgid "AYS random internal links"
 msgstr "AYS random internal links"
 
@@ -114,151 +114,151 @@ msgstr "100"
 msgid "contain"
 msgstr "contain"
 
-#: ../WordPress_Random_Posts_and_Pages.php:651
+#: ../WordPress_Random_Posts_and_Pages.php:642
 msgid "Title:"
 msgstr "Title:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:661
-#: ../WordPress_Random_Posts_and_Pages.php:689
-#: ../WordPress_Random_Posts_and_Pages.php:733
+#: ../WordPress_Random_Posts_and_Pages.php:652
+#: ../WordPress_Random_Posts_and_Pages.php:680
+#: ../WordPress_Random_Posts_and_Pages.php:724
 msgid "This feature is available only in "
 msgstr "This feature is available only in "
 
-#: ../WordPress_Random_Posts_and_Pages.php:662
-#: ../WordPress_Random_Posts_and_Pages.php:690
-#: ../WordPress_Random_Posts_and_Pages.php:734
+#: ../WordPress_Random_Posts_and_Pages.php:653
+#: ../WordPress_Random_Posts_and_Pages.php:681
+#: ../WordPress_Random_Posts_and_Pages.php:725
 msgid "PRO version!!!"
 msgstr "PRO version!!!"
 
-#: ../WordPress_Random_Posts_and_Pages.php:666
+#: ../WordPress_Random_Posts_and_Pages.php:657
 msgid "Themes:"
 msgstr "Themes:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:677
+#: ../WordPress_Random_Posts_and_Pages.php:668
 msgid "Animation type:"
 msgstr "Animation type:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:701
+#: ../WordPress_Random_Posts_and_Pages.php:692
 msgid "Post type:"
 msgstr "Post type:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:721
+#: ../WordPress_Random_Posts_and_Pages.php:712
 msgid "Hold the CTRL/CMD key and select the post types of your choice."
 msgstr "Hold the CTRL/CMD key and select the post types of your choice."
 
-#: ../WordPress_Random_Posts_and_Pages.php:725
+#: ../WordPress_Random_Posts_and_Pages.php:716
 msgid "Show posts with the same post type:"
 msgstr "Show posts with the same post type:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:748
+#: ../WordPress_Random_Posts_and_Pages.php:739
 msgid "Post category:"
 msgstr "Post category:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:772
+#: ../WordPress_Random_Posts_and_Pages.php:763
 msgid "Hold the CTRL/CMD key and select the post category of your choice."
 msgstr "Hold the CTRL/CMD key and select the post category of your choice."
 
-#: ../WordPress_Random_Posts_and_Pages.php:780
+#: ../WordPress_Random_Posts_and_Pages.php:771
 #, no-php-format
 msgid "Box Width (300px)(for the 100% save empty blank):"
 msgstr "Box Width (300px)(for the 100% save empty blank):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:785
+#: ../WordPress_Random_Posts_and_Pages.php:776
 msgid "Box Height (300px):"
 msgstr "Box Height (300px):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:790
+#: ../WordPress_Random_Posts_and_Pages.php:781
 msgid "Box background color:"
 msgstr "Box background color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:794
+#: ../WordPress_Random_Posts_and_Pages.php:785
 msgid "Background Image:"
 msgstr "Background Image:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:804
+#: ../WordPress_Random_Posts_and_Pages.php:795
 msgid "Box border color:"
 msgstr "Box border color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:812
+#: ../WordPress_Random_Posts_and_Pages.php:803
 msgid "Box border thickness (3px):"
 msgstr "Box border thickness (3px):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:817
+#: ../WordPress_Random_Posts_and_Pages.php:808
 msgid "Box border radius (10px):"
 msgstr "Box border radius (10px):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:822
+#: ../WordPress_Random_Posts_and_Pages.php:813
 msgid "Box shadow (0px 0px 6px 8px #BCE7E9):"
 msgstr "Box shadow (0px 0px 6px 8px #BCE7E9):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:831
+#: ../WordPress_Random_Posts_and_Pages.php:822
 msgid "Links count:"
 msgstr "Links count:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:836
+#: ../WordPress_Random_Posts_and_Pages.php:827
 msgid "Quantity letters:"
 msgstr "Quantity letters:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:842
+#: ../WordPress_Random_Posts_and_Pages.php:833
 msgid "Links Background color:"
 msgstr "Links Background color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:847
+#: ../WordPress_Random_Posts_and_Pages.php:838
 msgid "Links color:"
 msgstr "Links color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:852
+#: ../WordPress_Random_Posts_and_Pages.php:843
 msgid "Link padding (4px):"
 msgstr "Link padding (4px):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:857
+#: ../WordPress_Random_Posts_and_Pages.php:848
 msgid "Links border radius:"
 msgstr "Links border radius:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:862
+#: ../WordPress_Random_Posts_and_Pages.php:853
 msgid "Font:"
 msgstr "Font:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:874
+#: ../WordPress_Random_Posts_and_Pages.php:865
 msgid "Animation speed:"
 msgstr "Animation speed:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:883
+#: ../WordPress_Random_Posts_and_Pages.php:874
 msgid "Links hover image display:"
 msgstr "Links hover image display:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:892
+#: ../WordPress_Random_Posts_and_Pages.php:883
 msgid "Links hover image height (px):"
 msgstr "Links hover image height (px):"
 
-#: ../WordPress_Random_Posts_and_Pages.php:897
+#: ../WordPress_Random_Posts_and_Pages.php:888
 msgid "Links hover image size:"
 msgstr "Links hover image size:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:905
+#: ../WordPress_Random_Posts_and_Pages.php:896
 msgid "Links hover background color:"
 msgstr "Links hover background color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:911
+#: ../WordPress_Random_Posts_and_Pages.php:902
 msgid "Links hover color:"
 msgstr "Links hover color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:916
+#: ../WordPress_Random_Posts_and_Pages.php:907
 msgid "Links hover border color:"
 msgstr "Links hover border color:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:921
+#: ../WordPress_Random_Posts_and_Pages.php:912
 msgid "Hide on mobile devices:"
 msgstr "Hide on mobile devices:"
 
-#: ../WordPress_Random_Posts_and_Pages.php:931
+#: ../WordPress_Random_Posts_and_Pages.php:922
 msgid "Upgrade to Premium"
 msgstr "Upgrade to Premium"
 
-#: ../WordPress_Random_Posts_and_Pages.php:934
+#: ../WordPress_Random_Posts_and_Pages.php:925
 msgid "Get Now!"
 msgstr "Get Now!"
 
-#: ../WordPress_Random_Posts_and_Pages.php:940
+#: ../WordPress_Random_Posts_and_Pages.php:931
 msgid "Reset"
 msgstr "Reset"

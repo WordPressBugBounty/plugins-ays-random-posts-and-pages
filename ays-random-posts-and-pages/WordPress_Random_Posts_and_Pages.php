@@ -4,7 +4,7 @@ ob_start();
 Plugin Name:    Random Posts and Pages
 Plugin URI:     https://ays-pro.com/
 Description:    The main advantage of this widget is random movement of random links and every time they are changing.
-Version:        2.6.0
+Version:        2.6.1
 Author:         Random posts Team
 Author          URI: https://ays-pro.com/
 License:        GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
