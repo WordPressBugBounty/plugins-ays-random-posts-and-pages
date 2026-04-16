@@ -4,7 +4,7 @@ ob_start();
 Plugin Name:    Random Posts and Pages
 Plugin URI:     https://ays-pro.com/
 Description:    The main advantage of this widget is random movement of random links and every time they are changing.
-Version:        2.6.1
+Version:        2.6.2
 Author:         Random posts Team
 Author          URI: https://ays-pro.com/
 License:        GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -1074,6 +1074,22 @@ class Random_Posts_and_Pages extends WP_Widget {
     }
 } // Class random ends here
 
+function ays_rpp_add_body_class( $classes ) {
+    global $pagenow;
+
+    if ( $pagenow === 'admin.php' ) {
+        $page = isset( $_GET['page'] ) ? sanitize_key( $_GET['page'] ) : '';
+        
+        // Check if we're on a plugin page
+        if ( strpos( $page, 'ays-random-posts-and-pages' ) === 0 ) {
+            $classes .= ' ays-rpp-plugin-admin';
+        }
+    }
+
+    return $classes;
+}
+
+
 // Register and load the widget
 function wpb_load_widget() {
     
@@ -1086,5 +1102,6 @@ function wpdocs_load_textdomain() {
 
 add_action( 'widgets_init', 'wpb_load_widget' );
 add_action( 'widgets_init', 'wpdocs_load_textdomain' );
+add_action( 'admin_enqueue_scripts', 'ays_rpp_add_body_class' );
 
 ?>
